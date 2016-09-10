@@ -9,7 +9,7 @@ public class playerControl : MonoBehaviour {
     public bool m_facingRight = true;
     public bool m_jump = false;
     public float m_moveForce = 200f;
-    public float m_maxSpeed = 8f;
+    public float m_maxSpeed = 10f;
     public float m_jumpForce = 850f;
     public Transform m_groundCheck;
 
@@ -61,6 +61,16 @@ public class playerControl : MonoBehaviour {
             rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * m_maxSpeed, rb2d.velocity.y);
         }
 
+        float v = Input.GetAxis("Vertical");
+        if (v < 0.0f)
+        {
+            rb2d.AddForce(Vector2.up * v * m_moveForce);
+        }
+        // clamp drop speed
+        if (Mathf.Abs(rb2d.velocity.y) > m_maxSpeed && rb2d.velocity.y < 0.0f)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, -m_maxSpeed);
+        }
 
         if (h > 0 && !m_facingRight)
             Flip();
