@@ -10,7 +10,7 @@ public class playerControl : MonoBehaviour {
     public bool m_jump = false;
     public float m_moveForce = 200f;
     public float m_maxSpeed = 8f;
-    public float m_jumpForce = 500f;
+    public float m_jumpForce = 850f;
     public Transform m_groundCheck;
 
     public bool m_grounded = false;
