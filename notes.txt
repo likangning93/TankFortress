@@ -1,14 +1,14 @@
 TODO
-[] add weapons
-[] add a terrain generator
-[] rewrite controls system to be more modular -> allow shenanigans
-[] add "enemy encampment" components
+[ ] add weapons
+[ ] add a terrain generator
+[x] rewrite controls system to be more modular -> allow shenanigans
+[ ] add "enemy encampment" components
   - should be able to shell or run over camps
   - camps may have mines or other things that cause damage when you run over
   - camps should have artillery
-[] add health system and repairs
-[] add respawning
-[] add "magi" enemies
+[ ] add health system and repairs
+[ ] add respawning
+[ ] add "magi" enemies
   - teleport into the tank at predefined spawn points, poof out after casting some fire
   - shoot fireballs all over the place -> cause shenanigans, do internal damage
   - are vulnerable for a brief period during teleportation

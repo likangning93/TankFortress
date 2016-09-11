@@ -16,7 +16,7 @@ public class backButton : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            driveControl.clickBack();
+            driveControl.activeButtonBackward();
         }
     }
 
@@ -24,7 +24,7 @@ public class backButton : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            driveControl.unclick();
+            driveControl.resetActiveButton();
         }
     }
 }

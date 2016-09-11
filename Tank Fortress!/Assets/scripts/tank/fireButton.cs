@@ -16,7 +16,7 @@ public class fireButton : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            gunControl.clickFire();
+            gunControl.fireButtonActive();
         }
     }
 
@@ -24,7 +24,7 @@ public class fireButton : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            gunControl.unclick();
+            gunControl.resetActiveButton();
         }
     }
 }

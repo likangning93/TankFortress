@@ -19,51 +19,15 @@ public class GunControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         // handle clicking the buttons with down-arrow
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (currentButton == clockwiseButton)
-            {
-                if (turretState == TurretState.CLOCKWISE)
-                {
-                    stopTurret();
-                }
-                else
-                {
-                    turretState = TurretState.CLOCKWISE;
-                    buttonDown(clockwiseButton);
-                    buttonUp(cClockwiseButton);
-                }
-            }
-            else if (currentButton == cClockwiseButton)
-            {
-                if (turretState == TurretState.CCLOCKWISE)
-                {
-                    stopTurret();
-                }
-                else
-                {
-                    turretState = TurretState.CCLOCKWISE;
-                    buttonUp(clockwiseButton);
-                    buttonDown(cClockwiseButton);
-                }
-            }
-            else if (currentButton == fireButton)
-            {
-                if (m_firing)
-                {
-                    m_firing = false;
-                    buttonUp(fireButton);
-                }
-                else
-                {
-                    m_firing = true;
-                    buttonDown(fireButton);
-                }
-            }
+          clickClockwise();
+          clickCClockwise();
+          clickFireButton();
         }
 	}
 
@@ -79,6 +43,54 @@ public class GunControl : MonoBehaviour {
         }
     }
 
+    void clickClockwise() {
+      if (currentButton == clockwiseButton)
+      {
+          if (turretState == TurretState.CLOCKWISE)
+          {
+              stopTurret();
+          }
+          else
+          {
+              turretState = TurretState.CLOCKWISE;
+              buttonDown(clockwiseButton);
+              buttonUp(cClockwiseButton);
+          }
+      }
+    }
+
+    void clickCClockwise() {
+      if (currentButton == cClockwiseButton)
+      {
+          if (turretState == TurretState.CCLOCKWISE)
+          {
+              stopTurret();
+          }
+          else
+          {
+              turretState = TurretState.CCLOCKWISE;
+              buttonUp(clockwiseButton);
+              buttonDown(cClockwiseButton);
+          }
+      }
+    }
+
+    void clickFireButton() {
+      if (currentButton == fireButton)
+      {
+          if (m_firing)
+          {
+              m_firing = false;
+              buttonUp(fireButton);
+          }
+          else
+          {
+              m_firing = true;
+              buttonDown(fireButton);
+          }
+      }
+    }
+
     void stopTurret()
     {
         turretState = TurretState.NEUTRAL;
@@ -86,22 +98,22 @@ public class GunControl : MonoBehaviour {
         buttonUp(cClockwiseButton);
     }
 
-    public void clickFire()
+    public void fireButtonActive()
     {
         currentButton = fireButton;
     }
 
-    public void unclick()
+    public void resetActiveButton()
     {
         currentButton = null;
     }
 
-    public void clickClockwise()
+    public void clockwiseButtonActive()
     {
         currentButton = clockwiseButton;
     }
 
-    public void clickCclockwise()
+    public void cClockwiseButtonActive()
     {
         currentButton = cClockwiseButton;
     }

@@ -16,7 +16,7 @@ public class gunClockwise : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            gunControl.clickClockwise();
+            gunControl.clockwiseButtonActive();
         }
     }
 
@@ -24,7 +24,7 @@ public class gunClockwise : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            gunControl.unclick();
+            gunControl.resetActiveButton();
         }
     }
 }

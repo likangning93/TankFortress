@@ -40,37 +40,15 @@ public class DriveControl : MonoBehaviour
         m_wheel6 = wheel6.GetComponent<Rigidbody2D>();
         m_wheel7 = wheel7.GetComponent<Rigidbody2D>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
         // handle clicking the buttons with down-arrow
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (currentButton == forwardButton)
-            {
-                if (tankState == DriveState.FORWARD)
-                {
-                    stopTank();
-                }
-                else {
-                    tankState = DriveState.FORWARD;
-                    buttonDown(forwardButton);
-                    buttonUp(backButton);
-                }
-            }
-            else if (currentButton == backButton)
-            {
-                if (tankState == DriveState.BACKWARD)
-                {
-                    stopTank();
-                }
-                else {
-                    tankState = DriveState.BACKWARD;
-                    buttonDown(backButton);
-                    buttonUp(forwardButton);
-                }
-            }
+            clickForward();
+            clickBackward();
         }
 	}
 
@@ -87,17 +65,47 @@ public class DriveControl : MonoBehaviour
         }
     }
 
-    public void unclick()
+    public void clickForward()
+    {
+      if (currentButton == forwardButton) {
+        if (tankState == DriveState.FORWARD)
+        {
+            stopTank();
+        }
+        else {
+            tankState = DriveState.FORWARD;
+            buttonDown(forwardButton);
+            buttonUp(backButton);
+        }
+      }
+    }
+
+    public void clickBackward()
+    {
+      if (currentButton == backButton) {
+        if (tankState == DriveState.BACKWARD)
+        {
+            stopTank();
+        }
+        else {
+            tankState = DriveState.BACKWARD;
+            buttonDown(backButton);
+            buttonUp(forwardButton);
+        }
+      }
+    }
+
+    public void resetActiveButton()
     {
         currentButton = null;
     }
 
-    public void clickForward()
+    public void activeButtonForward()
     {
         currentButton = forwardButton;
     }
 
-    public void clickBack()
+    public void activeButtonBackward()
     {
         currentButton = backButton;
     }

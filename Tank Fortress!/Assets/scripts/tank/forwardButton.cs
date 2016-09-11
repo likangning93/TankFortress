@@ -17,15 +17,15 @@ public class forwardButton : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            driveControl.clickForward();
+            driveControl.activeButtonForward();
         }
     }
-    
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            driveControl.unclick();
+            driveControl.resetActiveButton();
         }
     }
 }
