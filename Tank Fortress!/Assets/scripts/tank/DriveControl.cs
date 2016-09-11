@@ -20,13 +20,13 @@ public class DriveControl : MonoBehaviour
     public GameObject backButton;
     public GameObject currentButton;
 
-    public Rigidbody2D m_wheel1;
-    public Rigidbody2D m_wheel2;
-    public Rigidbody2D m_wheel3;
-    public Rigidbody2D m_wheel4;
-    public Rigidbody2D m_wheel5;
-    public Rigidbody2D m_wheel6;
-    public Rigidbody2D m_wheel7;
+    Rigidbody2D m_wheel1;
+    Rigidbody2D m_wheel2;
+    Rigidbody2D m_wheel3;
+    Rigidbody2D m_wheel4;
+    Rigidbody2D m_wheel5;
+    Rigidbody2D m_wheel6;
+    Rigidbody2D m_wheel7;
 
     DriveState tankState = DriveState.NEUTRAL;
 
