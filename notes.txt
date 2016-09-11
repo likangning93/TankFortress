@@ -1,6 +1,6 @@
 TODO
-[ ] add weapons
-[ ] add a terrain generator
+[x] add weapons (basics done... don't actually do any damage yet)
+[x] add a terrain generator
 [x] rewrite controls system to be more modular -> allow shenanigans
 [ ] add "enemy encampment" components
   - should be able to shell or run over camps
