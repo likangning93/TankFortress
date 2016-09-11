@@ -10,6 +10,13 @@ public class GunControl : MonoBehaviour {
     public GameObject gun;
     public GameObject currentButton = null;
 
+    public GameObject turretMuzzle;
+    public Transform cannonballPrefab;
+    public int turretCooldown = 0;
+    public int turretCooldownRate = 80;
+    float turretCooldownStep = 0.0f;
+    public float launchPower = 2000.0f;
+
     TurretState turretState = TurretState.NEUTRAL;
 
     float m_orientationChange = 0.5f;
@@ -18,6 +25,7 @@ public class GunControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        turretCooldownStep = -1.0f / turretCooldownRate;
 	}
 
 	// Update is called once per frame
@@ -40,6 +48,43 @@ public class GunControl : MonoBehaviour {
         if (turretState == TurretState.CLOCKWISE)
         {
             changeOrientation(-m_orientationChange);
+        }
+        
+        animateTurret();
+        
+        if (m_firing)
+        {
+            fireCannonball();
+        }
+    }
+
+    void animateTurret()
+    {
+        if (turretCooldown > 0) {
+            turretCooldown--;
+            turretMuzzle.transform.Translate(0.0f, turretCooldownStep, 0.0f);
+        }
+    }
+
+    Vector3 cannonballDirectionScratch;
+    void fireCannonball()
+    {
+        if (turretCooldown == 0)
+        {
+            // fire!
+            Transform cannonballClone = Instantiate(cannonballPrefab);
+            Vector3 position = turretMuzzle.transform.position;
+            cannonballDirectionScratch = position - gun.transform.position;
+            cannonballDirectionScratch.Normalize();
+
+            cannonballClone.transform.position = position + cannonballDirectionScratch * 2.0f;
+
+            Rigidbody2D rb2d = cannonballClone.GetComponent<Rigidbody2D>();
+            rb2d.AddForce(cannonballDirectionScratch * launchPower);
+
+            // recoil animation
+            turretCooldown = turretCooldownRate;
+            turretMuzzle.transform.Translate(0.0f, 1.0f, 0.0f);
         }
     }
 
