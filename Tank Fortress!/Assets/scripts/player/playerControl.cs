@@ -8,12 +8,12 @@ public class playerControl : MonoBehaviour {
 
     public bool m_facingRight = true;
     public bool m_jump = false;
-    public float m_moveForce = 200f;
-    public float m_maxSpeed = 10f;
-    public float m_jumpForce = 850f;
+    public float m_moveForce = 3f;
+    public float m_maxSpeed = 15f;
+    public float m_jumpForce = 9f;
     public Transform m_groundCheck;
 
-    public bool m_grounded = false;
+    public int m_grounded = 0;
     private Rigidbody2D rb2d;
     public Vector2 m_up = Vector2.up;
 
@@ -28,13 +28,13 @@ public class playerControl : MonoBehaviour {
         {
             m_up = transform.position - m_groundCheck.position;
             m_up.Normalize();
-            m_grounded = Physics2D.Linecast(transform.position, m_groundCheck.position, 1 << LayerMask.NameToLayer("Platforms"));
+            m_grounded = Physics2D.Linecast(transform.position, m_groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")) ? 2 : m_grounded;
         }
 
-        if (Input.GetButtonDown("Jump") && m_grounded)
+        if (Input.GetButtonDown("Jump") && m_grounded > 0)
         {
             m_jump = true;
-            m_grounded = false;
+            m_grounded--;
         }
 
         // Keep the player from tipping over
