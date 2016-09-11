@@ -13,6 +13,7 @@ public class GunControl : MonoBehaviour {
     TurretState turretState = TurretState.NEUTRAL;
 
     float m_orientationChange = 0.5f;
+    float m_totalOrientationChange = 0.0f;
     bool m_firing = false;
 
 	// Use this for initialization
@@ -121,12 +122,20 @@ public class GunControl : MonoBehaviour {
 
     void changeOrientation(float dRotation)
     {
-        Vector3 rotation = gun.transform.rotation.eulerAngles;
-        print(rotation);
-        rotation.z += dRotation;
-        if (rotation.z > 180.0f) rotation.z = 180.0f;
-        if (rotation.z < 0.0f) rotation.z = 0.0f;
+        m_totalOrientationChange += dRotation;
+        if (m_totalOrientationChange > 90.0f)
+        {
+            dRotation = 0.0f;
+            m_totalOrientationChange = 90.0f;
+        }
+        if (m_totalOrientationChange < -90.0f)
+        {
+            dRotation = 0.0f;
+            m_totalOrientationChange = -90.0f;
+        }
 
+        Vector3 rotation = gun.transform.rotation.eulerAngles;
+        rotation.z += dRotation;
         gun.transform.rotation = Quaternion.Euler(rotation);
     }
 }
