@@ -23,7 +23,7 @@ public class SubHealthTracker : MonoBehaviour {
         {
             parentHealthTracker.damagedThisFrame = true;
             parentHealthTracker.health -= collider.GetComponent<damager>().damageDealt;
-            print("damage from sub tracker collision");
+            print("damage from sub tracker trigger");
         }
     }
 }

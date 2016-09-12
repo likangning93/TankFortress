@@ -24,3 +24,5 @@ TODO
   - can poof to predefined points around YOU as well
   - spawn from "magi huts" -> respawn slow, re-teleport fast
   - be nice if each magi has a unique teleportation color
+
+Trung: some camera shake and a less-centered camera would be nice

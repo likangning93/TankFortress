@@ -39,12 +39,12 @@ public class playerControl : MonoBehaviour {
 
         // Keep the player from tipping over
         Quaternion rotation = rb2d.transform.rotation;
-        if (rotation.z > 0.38f) {
-            rb2d.transform.rotation = new Quaternion(rotation.x, rotation.y, 0.38f, rotation.w);
+        if (rotation.z > 0.30f) {
+            rb2d.transform.rotation = new Quaternion(rotation.x, rotation.y, 0.30f, rotation.w);
         }
-        else if (rotation.z < -0.38f)
+        else if (rotation.z < -0.30f)
         {
-            rb2d.transform.rotation = new Quaternion(rotation.x, rotation.y, -0.38f, rotation.w);
+            rb2d.transform.rotation = new Quaternion(rotation.x, rotation.y, -0.30f, rotation.w);
         }
 	}
 

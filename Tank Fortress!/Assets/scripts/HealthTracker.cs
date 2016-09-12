@@ -36,11 +36,11 @@ public class HealthTracker : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Explosion" && !damagedThisFrame)
+        if (collider.tag == "Damager" && !damagedThisFrame)
         {
             damagedThisFrame = true;
             health -= collider.GetComponent<damager>().damageDealt;
-            print("damage from trigger");
+            //print("damage from trigger");
         }
     }
 }
