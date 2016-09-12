@@ -18,7 +18,7 @@ public class cannonball : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D()
     {
         lifeSpan = -1; // destroy this on the next cycle
     }

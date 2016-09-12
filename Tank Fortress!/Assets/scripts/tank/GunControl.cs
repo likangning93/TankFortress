@@ -15,7 +15,7 @@ public class GunControl : MonoBehaviour {
     public int turretCooldown = 0;
     public int turretCooldownRate = 80;
     float turretCooldownStep = 0.0f;
-    public float launchPower = 2000.0f;
+    public float launchPower = 2200.0f;
 
     TurretState turretState = TurretState.NEUTRAL;
 

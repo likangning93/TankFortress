@@ -4,9 +4,16 @@ TODO
 [x] rewrite controls system to be more modular -> allow shenanigans
 [ ] add "enemy encampment" components
   - should be able to shell or run over camps
-  - camps may have mines or other things that cause damage when you run over
-  - camps should have artillery
-[ ] add health system and repairs
+  - should be able to spawn with the random terrain... ideally we'd use l-systems, but... eh. maybe just have a few templates
+  - camps have:
+    - mines - basic done
+    - walls - basic done
+    - artillery - basic done
+      - good projectile motion involves... math
+      - wanna just use 45 degree launches? should be "safe"
+    - magi hut
+[ ] add multicamera view
+[ ] add health/repair system
 [ ] add respawning
 [ ] add "magi" enemies
   - teleport into the tank at predefined spawn points, poof out after casting some fire
