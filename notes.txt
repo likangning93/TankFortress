@@ -11,8 +11,7 @@ TODO
     - artillery - basic done
       - good projectile motion involves... math
       - wanna just use 45 degree launches? should be "safe"
-      - give turret rotation instead of straight flipping [ ]
-      - give turret recoil animation [ ]
+      - give turret rotation instead of straight flipping [x]
     - magi hut
       - need an element to indicate respawning
 [x] add multicamera view - http://answers.unity3d.com/questions/10206/how-can-i-show-split-screen-or-multiple-camera-vie.html

@@ -6,13 +6,16 @@ public class artillery : MonoBehaviour {
     public GameObject turretBarrel;
     public GameObject turretHousing;
 
-    public int rotateSpeed = 1;
     public int turretCooldown = 0;
     public int turretCooldownRate = 80;
 
     public Transform cannonballPrefab;
 
     Transform m_target = null;
+    int goalAngle = -45;
+    int currentAngle = -45;
+
+    Vector3 launchDirection = new Vector3(-1.0f, 1.0f, 0.0f);
 
     float const_g = 0.0f;
 
@@ -26,43 +29,56 @@ public class artillery : MonoBehaviour {
         {
             float targetPositionX = m_target.transform.position.x;
             float targetPositionY = m_target.transform.position.y;
-            Vector3 launchDirection = checkAndCorrectOrientation(targetPositionX);
 
-            // Compute launch velocity based on 45 degree angle.
-            Vector3 launchPosition = turretBarrel.transform.position;
-            launchPosition += launchDirection * 2.0f;
-
-            float xMinusX0 = Mathf.Abs(targetPositionX - launchPosition.x);
-            float launchSpeed = (const_g * xMinusX0 * xMinusX0) / (targetPositionY - launchPosition.y - xMinusX0);
-            if (launchSpeed > 0.0f)
+            if (checkAndCorrectOrientation(targetPositionX))
             {
-                launchSpeed = Mathf.Sqrt(launchSpeed);
+                // Compute launch velocity based on 45 degree angle.
+                Vector3 launchPosition = turretBarrel.transform.position;
+                launchPosition += launchDirection * 2.0f;
 
-                Transform cannonballClone = Instantiate(cannonballPrefab);
-                cannonballClone.transform.position = launchPosition;
-                Rigidbody2D rb2d = cannonballClone.GetComponent<Rigidbody2D>();
-                rb2d.velocity = launchDirection * launchSpeed;
+                float xMinusX0 = Mathf.Abs(targetPositionX - launchPosition.x);
+                float launchSpeed = (const_g * xMinusX0 * xMinusX0) / (targetPositionY - launchPosition.y - xMinusX0);
+                if (launchSpeed > 0.0f)
+                {
+                    launchSpeed = Mathf.Sqrt(launchSpeed);
 
-                turretCooldown = turretCooldownRate;
+                    Transform cannonballClone = Instantiate(cannonballPrefab);
+                    cannonballClone.transform.position = launchPosition;
+                    Rigidbody2D rb2d = cannonballClone.GetComponent<Rigidbody2D>();
+                    rb2d.velocity = launchDirection * launchSpeed;
+
+                    turretCooldown = turretCooldownRate;
+                }
             }
         }
         if (turretCooldown > 0) turretCooldown--;
 	}
 
-    Vector3 launchDirectionScratch = new Vector3(1.0f, 1.0f, 0.0f);
-    Vector3 checkAndCorrectOrientation(float targetPositionX)
+    bool checkAndCorrectOrientation(float targetPositionX)
     {
         float positionX = transform.position.x;
-        float goalAngle = -45f;
-        launchDirectionScratch.x = 1.0f;
-        launchDirectionScratch.y = 1.0f;
+        launchDirection.x = 1.0f;
+        launchDirection.y = 1.0f;
+        goalAngle = -45;
         if (positionX > targetPositionX)
         {
-            launchDirectionScratch.x = -1.0f;
-            goalAngle = 45f;
+            launchDirection.x = -1.0f;
+            goalAngle = 45;
         }
-        turretHousing.transform.rotation = Quaternion.AngleAxis(goalAngle, Vector3.forward);
-        return launchDirectionScratch;
+        if (currentAngle != goalAngle)
+        {
+            if (goalAngle > 0)
+            {
+                currentAngle++;
+            }
+            else
+            {
+                currentAngle--;
+            }
+        }
+
+        turretHousing.transform.rotation = Quaternion.AngleAxis(currentAngle, Vector3.forward);
+        return currentAngle == goalAngle;
     }
 
     public void setTarget(Transform target)
