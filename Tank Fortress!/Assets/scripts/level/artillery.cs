@@ -34,14 +34,17 @@ public class artillery : MonoBehaviour {
 
             float xMinusX0 = Mathf.Abs(targetPositionX - launchPosition.x);
             float launchSpeed = (const_g * xMinusX0 * xMinusX0) / (targetPositionY - launchPosition.y - xMinusX0);
-            launchSpeed = Mathf.Sqrt(launchSpeed);
+            if (launchSpeed > 0.0f)
+            {
+                launchSpeed = Mathf.Sqrt(launchSpeed);
 
-            Transform cannonballClone = Instantiate(cannonballPrefab);
-            cannonballClone.transform.position = launchPosition;
-            Rigidbody2D rb2d = cannonballClone.GetComponent<Rigidbody2D>();
-            rb2d.velocity = launchDirection * launchSpeed;
+                Transform cannonballClone = Instantiate(cannonballPrefab);
+                cannonballClone.transform.position = launchPosition;
+                Rigidbody2D rb2d = cannonballClone.GetComponent<Rigidbody2D>();
+                rb2d.velocity = launchDirection * launchSpeed;
 
-            turretCooldown = turretCooldownRate;
+                turretCooldown = turretCooldownRate;
+            }
         }
         if (turretCooldown > 0) turretCooldown--;
 	}

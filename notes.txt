@@ -11,11 +11,17 @@ TODO
     - artillery - basic done
       - good projectile motion involves... math
       - wanna just use 45 degree launches? should be "safe"
+      - give turret rotation instead of straight flipping [ ]
+      - give turret recoil animation [ ]
     - magi hut
+      - need an element to indicate respawning
 [ ] add multicamera view - http://answers.unity3d.com/questions/10206/how-can-i-show-split-screen-or-multiple-camera-vie.html
 [ ] add health/repair system
+    - likely need cannonballs to cause splash damage
 [ ] add respawning
 [ ] add "magi" enemies
   - teleport into the tank at predefined spawn points, poof out after casting some fire
   - shoot fireballs all over the place -> cause shenanigans, do internal damage
-  - are vulnerable for a brief period during teleportation
+  - can poof to predefined points around YOU as well
+  - spawn from "magi huts" -> respawn slow, re-teleport fast
+  - be nice if each magi has a unique teleportation color
