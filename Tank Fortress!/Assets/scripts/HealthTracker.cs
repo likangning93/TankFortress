@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HealthTracker : MonoBehaviour
 {
-    public int damageMultiplier = 1;
+    public float damageMultiplier = 1.0f;
     public int health = 100;
     public int maxHealth = 100;
     public bool damagedThisFrame = false;
@@ -29,8 +29,8 @@ public class HealthTracker : MonoBehaviour
         if (collision.collider.tag == "Damager" && !damagedThisFrame)
         {
             damagedThisFrame = true;
-            health -= damageMultiplier * collision.collider.GetComponent<damager>().damageDealt;
-            print("damage from collision");
+            health -= (int) (damageMultiplier * (float) collision.collider.GetComponent<damager>().damageDealt);
+            //print("damage from collision");
         }
     }
 
@@ -39,7 +39,7 @@ public class HealthTracker : MonoBehaviour
         if (collider.tag == "Damager" && !damagedThisFrame)
         {
             damagedThisFrame = true;
-            health -= damageMultiplier * collider.GetComponent<damager>().damageDealt;
+            health -= (int)(damageMultiplier * (float) collider.GetComponent<damager>().damageDealt);
             //print("damage from trigger");
         }
     }

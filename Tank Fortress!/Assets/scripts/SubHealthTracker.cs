@@ -4,7 +4,7 @@ using System.Collections;
 public class SubHealthTracker : MonoBehaviour {
 
     public HealthTracker parentHealthTracker;
-    public int damageMultiplier = 1;
+    public float damageMultiplier = 1.0f;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -12,8 +12,8 @@ public class SubHealthTracker : MonoBehaviour {
             !parentHealthTracker.damagedThisFrame)
         {
             parentHealthTracker.damagedThisFrame = true;
-            parentHealthTracker.health -= damageMultiplier * collision.collider.GetComponent<damager>().damageDealt;
-            print("damage from sub tracker collision");
+            parentHealthTracker.health -= (int) (damageMultiplier * (float) collision.collider.GetComponent<damager>().damageDealt);
+            //print("damage from sub tracker collision");
         }
     }
 
@@ -23,8 +23,8 @@ public class SubHealthTracker : MonoBehaviour {
             !parentHealthTracker.damagedThisFrame)
         {
             parentHealthTracker.damagedThisFrame = true;
-            parentHealthTracker.health -= damageMultiplier * collider.GetComponent<damager>().damageDealt;
-            print("damage from sub tracker trigger");
+            parentHealthTracker.health -= (int)(damageMultiplier * (float) collider.GetComponent<damager>().damageDealt);
+            //print("damage from sub tracker trigger");
         }
     }
 }
