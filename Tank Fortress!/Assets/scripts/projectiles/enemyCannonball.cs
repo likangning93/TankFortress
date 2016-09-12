@@ -23,4 +23,10 @@ public class enemyCannonball : MonoBehaviour {
     {
         lifeRemaining = -1; // destroy this on the next cycle
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Damager")
+            lifeRemaining = -1; // destroy this on the next cycle
+    }
 }
