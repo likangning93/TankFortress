@@ -26,10 +26,21 @@ public class HealthTracker : MonoBehaviour
     // Getting hit by a damager causes damage
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Damager")
+        if (collision.collider.tag == "Damager" && !damagedThisFrame)
         {
-            health -= collision.collider.GetComponent<damager>().damageDealt;
             damagedThisFrame = true;
+            health -= collision.collider.GetComponent<damager>().damageDealt;
+            print("damage from collision");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Explosion" && !damagedThisFrame)
+        {
+            damagedThisFrame = true;
+            health -= collider.GetComponent<damager>().damageDealt;
+            print("damage from trigger");
         }
     }
 }

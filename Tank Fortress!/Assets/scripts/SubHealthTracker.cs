@@ -12,6 +12,18 @@ public class SubHealthTracker : MonoBehaviour {
         {
             parentHealthTracker.damagedThisFrame = true;
             parentHealthTracker.health -= collision.collider.GetComponent<damager>().damageDealt;
+            print("damage from sub tracker collision");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Damager" &&
+            !parentHealthTracker.damagedThisFrame)
+        {
+            parentHealthTracker.damagedThisFrame = true;
+            parentHealthTracker.health -= collider.GetComponent<damager>().damageDealt;
+            print("damage from sub tracker collision");
         }
     }
 }

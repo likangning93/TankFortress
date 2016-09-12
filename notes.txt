@@ -16,7 +16,7 @@ TODO
       - need an element to indicate respawning
 [x] add multicamera view - http://answers.unity3d.com/questions/10206/how-can-i-show-split-screen-or-multiple-camera-vie.html
 [ ] add health/repair system
-    - likely need cannonballs to cause splash damage
+    - likely need cannonballs to cause splash damage -> see http://answers.unity3d.com/questions/410711/trigger-in-child-object-calls-ontriggerenter-in-pa.html
 [ ] add respawning
 [ ] add "magi" enemies
   - teleport into the tank at predefined spawn points, poof out after casting some fire
