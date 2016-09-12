@@ -18,6 +18,7 @@ TODO
 [ ] add health/repair system
     - likely need cannonballs to cause splash damage -> see http://answers.unity3d.com/questions/410711/trigger-in-child-object-calls-ontriggerenter-in-pa.html
     - add a cute little bubbly damage collapse animation
+    - implement running over enemies
 [ ] add respawning
 [ ] add "magi" enemies
   - teleport into the tank at predefined spawn points, poof out after casting some fire
