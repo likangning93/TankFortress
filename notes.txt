@@ -12,7 +12,7 @@ TODO
       - good projectile motion involves... math
       - wanna just use 45 degree launches? should be "safe"
     - magi hut
-[ ] add multicamera view
+[ ] add multicamera view - http://answers.unity3d.com/questions/10206/how-can-i-show-split-screen-or-multiple-camera-vie.html
 [ ] add health/repair system
 [ ] add respawning
 [ ] add "magi" enemies
