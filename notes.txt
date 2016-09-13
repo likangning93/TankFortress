@@ -28,3 +28,34 @@ TODO
   - be nice if each magi has a unique teleportation color
 
 Trung: some camera shake and a less-centered camera would be nice
+
+Beta:
+[x] decide how to progress
+    - enhance inside level, make outside slower and more strategic?
+      - add auto-targeting?
+      - add repairs?
+    - tune outside level to make the game less stressful?
+      - make the tank move faster, more immediately?
+      - make enemies shoot more slowly? -> probably need that better kinematic...
+    - both: add co-op?
+
+- let's go with a more complete platformer level within the tank
+- the "outside world" will be VERY big, with platforms, holes, walls of its own
+- you will have to get the tank to "run" (rollers) and "jump" (thrusters)
+  - drive controls should be in clusters, should also be fully destructible
+  - thrusters and controls are clustered front, back, bottom for mid-air maneuvers
+
+- enemies: -> need to be familiar, annoying, but not frustrating
+  - tank takes damage from howitzer bombardment, so you should try to keep moving
+    -howitzer bombardment indicated with !! icon on screen
+  - things inside the tank can kill you -> falling on running treads, fried by thrusters...
+    -respawn unlimited, but drops you in central control room
+
+- or... goal is to deliver a pizza within a time limit? no need for howitzers, or enemies in general!
+- funny stupid enemies teleport into the tank and mess with controls but otherwise don't do harm?
+
+[ ] tighten player controls, make 2-player
+[ ] make tank structure much bigger
+  [ ] implement scattered drive controls
+  [ ] implement thrusters -> limited fuel, recharges on the ground
+[ ] make bigger level
