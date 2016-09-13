@@ -19,7 +19,7 @@ TODO
     - likely need cannonballs to cause splash damage -> see http://answers.unity3d.com/questions/410711/trigger-in-child-object-calls-ontriggerenter-in-pa.html
     - add a cute little bubbly damage collapse animation [done]
     - implement running over enemies [done]
-[ ] add respawning
+[x] add respawning
 [ ] add "magi" enemies
   - teleport into the tank at predefined spawn points, poof out after casting some fire
   - shoot fireballs all over the place -> cause shenanigans, do internal damage
