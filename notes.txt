@@ -54,8 +54,10 @@ Beta:
 - or... goal is to deliver a pizza within a time limit? no need for howitzers, or enemies in general!
 - funny stupid enemies teleport into the tank and mess with controls but otherwise don't do harm?
 
-[ ] tighten player controls, make 2-player
+[x] tighten player controls, make 2-player -> nahhh no 2-player
 [ ] make tank structure much bigger
   [ ] implement scattered drive controls
   [ ] implement thrusters -> limited fuel, recharges on the ground
+  [ ] add things in the tank that kill you
 [ ] make bigger level
+[ ] add timers

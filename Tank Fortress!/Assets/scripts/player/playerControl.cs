@@ -24,12 +24,11 @@ public class playerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            m_up = transform.position - m_groundCheck.position;
-            m_up.Normalize();
-            m_grounded = Physics2D.Linecast(transform.position, m_groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")) ? 2 : m_grounded;
-        }
+
+        // check grounding state
+        m_up = transform.position - m_groundCheck.position;
+        m_up.Normalize();
+        m_grounded = Physics2D.Linecast(transform.position, m_groundCheck.position, 1 << LayerMask.NameToLayer("Platforms")) ? 2 : m_grounded;
 
         if (Input.GetButtonDown("Jump") && m_grounded > 0)
         {
