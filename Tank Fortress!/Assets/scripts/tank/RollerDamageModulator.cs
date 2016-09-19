@@ -13,6 +13,6 @@ public class RollerDamageModulator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rollerDamager.damageDealt = (int) Mathf.Abs(rb2d.angularVelocity);
+        rollerDamager.damageDealt = Mathf.Abs(rb2d.angularVelocity) > 100.0f ? 10 : 0;
 	}
 }

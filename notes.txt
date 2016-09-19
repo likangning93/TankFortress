@@ -55,9 +55,30 @@ Beta:
 - funny stupid enemies teleport into the tank and mess with controls but otherwise don't do harm?
 
 [x] tighten player controls, make 2-player -> nahhh no 2-player
-[ ] make tank structure much bigger
-  [ ] implement scattered drive controls
+[x] make tank structure much bigger and more complicated
+  [ ] implement scattered drive controls? -> not needed, added some obstacles
   [ ] implement thrusters -> limited fuel, recharges on the ground
-  [ ] add things in the tank that kill you
+  [x] add things in the tank that kill you
 [ ] make bigger level
-[ ] add timers
+[ ] add timers, GUI
+
+- challenge Shlane posted was to simplify + make the game more platformer
+- build a platormer level and make driving the tank well tied to playing the
+  platformer game well. how to tie these together?
+- problem is that centralized tank controls are the only way driving makes sense
+  - why should the tank have multiple control areas?
+  - should you have to hop around and fire up different engine areas? Seems complicated...
+  - can split "jump" and "move" controls at least, though
+  - pick up fuel from enemies you kill inside the tank?
+  - another idea was wizards who sabotage the drive system
+    - slow tank down, prevent jump execution, mess with controls...
+    - freeze rockets while tank is in the air
+  - maybe we can still keep the landmines outside?
+  - or... how about just having rockets? so braking, thrusting up, etc. involves dashing around?
+    - be fun if your weight in the tank also influences flight pattern a little
+  - you know, super meat boy has REALLY good small levels
+  - maybe take inspiration from that kind of level design?
+  - lots of opportunities inside the tank to fall to your death?
+  - what if... WHEN THE WHEELS ARE ROLLING THE PLATFORMS ROTATE TOO?!
+  - and there's ASSORTED OTHER THINGS THAT KILL YOU?
+  - maybe just ONE wizard that poofs around?

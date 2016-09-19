@@ -25,8 +25,6 @@ public class explodeOnDestroy : MonoBehaviour {
     Vector3 offset = new Vector3();
     void spawnExplosions()
     {
-        Vector3 position = transform.position;
-
         for (int i = 0; i < explosionCount; i++)
         {
             offset.x = 0.5f - Random.value * radius;

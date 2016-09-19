@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-enum DriveState {FORWARD, BACKWARD, NEUTRAL};
+public enum DriveState {FORWARD, BACKWARD, NEUTRAL};
 
 public class DriveControl : MonoBehaviour
 {
