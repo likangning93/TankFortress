@@ -60,7 +60,7 @@ Beta:
   [x] implement thrusters -> limited fuel, recharges on the ground
   [x] add things in the tank that kill you
 [x] make bigger level
-[ ] add timers, GUI
+[x] add timers, GUI
 
 - challenge Shlane posted was to simplify + make the game more platformer
 - build a platormer level and make driving the tank well tied to playing the
