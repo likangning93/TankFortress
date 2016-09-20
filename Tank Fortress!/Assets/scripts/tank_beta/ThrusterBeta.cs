@@ -37,7 +37,7 @@ public class ThrusterBeta : MonoBehaviour {
         if (m_currentFiring > 0)
         {
             tankRb2d.AddForceAtPosition(Vector3.up * m_currentFiring * 5.0f, transform.position);
-            flameHandle.transform.localScale = originalFlameScale * ((float) m_currentFiring / (float) firingDuration);
+            flameHandle.transform.localScale = originalFlameScale * Mathf.Min((2.0f * m_currentFiring / (float) firingDuration), 1.0f);
             flameHandle.Rotate(0.0f, 10.0f, 0.0f);
             m_currentFiring--;
         }

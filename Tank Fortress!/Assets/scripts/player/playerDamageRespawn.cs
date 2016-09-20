@@ -14,7 +14,7 @@ public class playerDamageRespawn : MonoBehaviour {
     public int health = 9;
     public int maxHealth = 9;
 
-    public int respawnWait = 60;
+    public int respawnWait = 80;
     public int respawnWaitRemaining = -1;
 
     Vector3 normalScale;
