@@ -56,10 +56,10 @@ Beta:
 
 [x] tighten player controls, make 2-player -> nahhh no 2-player
 [x] make tank structure much bigger and more complicated
-  [ ] implement scattered drive controls? -> not needed, added some obstacles
-  [ ] implement thrusters -> limited fuel, recharges on the ground
+  [o] implement scattered drive controls? -> not needed, added some obstacles
+  [x] implement thrusters -> limited fuel, recharges on the ground
   [x] add things in the tank that kill you
-[ ] make bigger level
+[x] make bigger level
 [ ] add timers, GUI
 
 - challenge Shlane posted was to simplify + make the game more platformer
