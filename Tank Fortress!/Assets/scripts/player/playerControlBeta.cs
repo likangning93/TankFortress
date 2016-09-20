@@ -48,17 +48,6 @@ public class playerControlBeta : MonoBehaviour
             m_jump = true;
             m_grounded--;
         }
-
-        // Keep the player from tipping over
-        Quaternion rotation = rb2d.transform.rotation;
-        if (rotation.z > 0.30f)
-        {
-            rb2d.transform.rotation = new Quaternion(rotation.x, rotation.y, 0.30f, rotation.w);
-        }
-        else if (rotation.z < -0.30f)
-        {
-            rb2d.transform.rotation = new Quaternion(rotation.x, rotation.y, -0.30f, rotation.w);
-        }
     }
 
     void FixedUpdate()
