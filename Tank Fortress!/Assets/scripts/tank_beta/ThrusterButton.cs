@@ -6,9 +6,18 @@ public class ThrusterButton : MonoBehaviour {
     public ThrusterBeta thruster1;
     public ThrusterBeta thruster2;
 
+    public AudioClip click;
+    private AudioSource source;
+
     bool buttonDown = false;
 
     bool playerTouching = false;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+        click = source.clip;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -43,12 +52,14 @@ public class ThrusterButton : MonoBehaviour {
         Vector3 scale = transform.localScale;
         Vector3 newScale = new Vector3(scale.x, 10.0f, scale.z);
         transform.localScale = newScale;
+        source.PlayOneShot(click);
     }
 
     void toggleButton()
     {
         Vector3 newScale;
         Vector3 scale = transform.localScale;
+        source.PlayOneShot(click);
         if (buttonDown)
         {
             newScale = new Vector3(scale.x, 10.0f, scale.z);

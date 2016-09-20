@@ -6,6 +6,8 @@ using System.Collections;
 
 public class playerControlBeta : MonoBehaviour
 {
+    private AudioSource source;
+    public AudioClip jump;
 
     public bool m_jump = false;
     public float m_moveForce = 3f;
@@ -26,6 +28,7 @@ public class playerControlBeta : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        source = GetComponent<AudioSource>();
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -47,6 +50,7 @@ public class playerControlBeta : MonoBehaviour
         {
             m_jump = true;
             m_grounded--;
+            source.PlayOneShot(jump);
         }
     }
 

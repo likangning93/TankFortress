@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ThrusterBeta : MonoBehaviour {
 
+    private AudioSource source;
+    public AudioClip fireRocket;
+
     public Transform flameHandle;
     public GameObject tankHandle;
     public ThrusterButton button;
@@ -14,6 +17,11 @@ public class ThrusterBeta : MonoBehaviour {
     public int m_currentFiring = -1;
     public int m_currentRecharge = -1;
     Vector3 originalFlameScale;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +55,7 @@ public class ThrusterBeta : MonoBehaviour {
     {
         if (m_currentRecharge == rechargeDuration)
         {
+            source.PlayOneShot(fireRocket);
             m_currentFiring = firingDuration;
             m_currentRecharge = 0;
         }

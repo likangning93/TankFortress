@@ -3,6 +3,10 @@ using System.Collections;
 
 public class playerDamageRespawn : MonoBehaviour {
 
+    private AudioSource source;
+    public AudioClip death;
+    public AudioClip respawn;
+
     public Transform respawner;
     public bool spawnerDied = false;
 
@@ -14,6 +18,11 @@ public class playerDamageRespawn : MonoBehaviour {
     public int respawnWaitRemaining = -1;
 
     Vector3 normalScale;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     void Start()
@@ -63,6 +72,7 @@ public class playerDamageRespawn : MonoBehaviour {
     Vector3 respawningScale = new Vector3(0.01f, 0.01f, 0.01f);
     void initRespawn()
     {
+        source.PlayOneShot(death);
         if (spawnerDied) Destroy(gameObject);
         else
         {
@@ -74,6 +84,7 @@ public class playerDamageRespawn : MonoBehaviour {
 
     void finishRespawn()
     {
+        source.PlayOneShot(respawn);
         health = maxHealth;
         transform.localScale = normalScale;
         respawnWaitRemaining = -1;

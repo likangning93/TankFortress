@@ -9,7 +9,16 @@ public class DriveControlBeta : MonoBehaviour
     public GameObject backButton;
     public GameObject currentButton;
 
+    public AudioClip click;
+    private AudioSource source;
+
     public DriveState tankState = DriveState.NEUTRAL;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+        click = source.clip;
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,6 +27,7 @@ public class DriveControlBeta : MonoBehaviour
         // handle clicking the buttons with down-arrow
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            source.PlayOneShot(click);
             clickForward();
             clickBackward();
         }
